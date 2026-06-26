@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <style>
         :root {
-            --bg-color: #0d0d0d;
-            --sidebar-color: #1a1a1a;
-            --accent-color: #4da6ff;
-            --text-color: #ffffff;
+            --bg-color: #201319; /* Bordeaux scuro di fondo */
+            --sidebar-color: #120b0e;
+            --accent-color: #4da6ff; /* Blu chiaro richiesto */
             --card-bg: #1a1a1a;
+            --text-color: #ffffff;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
             display: flex;
             height: 100vh;
@@ -23,17 +23,19 @@
         #sidebar {
             width: 250px;
             background-color: var(--sidebar-color);
-            padding: 20px;
-            border-right: 2px solid var(--accent-color);
+            padding: 30px;
+            border-right: 1px solid #333;
         }
 
         .menu-item {
             padding: 15px;
             margin-bottom: 10px;
             cursor: pointer;
+            background: #201319;
             border: 1px solid #333;
-            border-radius: 5px;
+            border-radius: 8px;
             text-align: center;
+            transition: 0.3s;
         }
 
         .menu-item:hover {
@@ -43,40 +45,43 @@
 
         #content {
             flex-grow: 1;
-            padding: 40px;
+            padding: 50px;
             overflow-y: auto;
         }
 
         .section { display: none; }
 
         .card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 5px solid var(--accent-color);
-            margin-bottom: 20px;
+            background: #120b0e;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            margin-bottom: 30px;
         }
 
-        h1, h2 { color: var(--accent-color); }
+        h1, h2 { color: var(--accent-color); margin-top: 0; }
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
 
         .item {
-            background: #262626;
+            background: var(--card-bg);
             padding: 20px;
             border-radius: 8px;
-            border: 1px solid #444;
+            border: 1px solid #333;
+            transition: 0.3s;
         }
+
+        .item:hover { border-color: var(--accent-color); }
     </style>
 </head>
 <body>
 
     <div id="sidebar">
-        <h2>Panda</h2>
+        <h2 style="text-align:center;">Panda</h2>
         <div class="menu-item" onclick="show('bio')">Biografia</div>
         <div class="menu-item" onclick="show('staff')">Staff Experience</div>
     </div>
@@ -86,7 +91,7 @@
             <div class="card">
                 <h1>Biografia</h1>
                 <p>Ragazzo di 15 anni appassionato di sicurezza nei server Minecraft.</p>
-                <p>Studio tecniche di ScreenSharing (SS) e sono attualmente staff su AuraMc.</p>
+                <p>Studio tecniche di ScreenSharing e sono attualmente staff su AuraMc.</p>
             </div>
         </div>
 
@@ -96,16 +101,16 @@
             <h2>Discord</h2>
             <div class="grid-container">
                 <div class="item">
-                    <h3>Hollow Bypass</h3>
-                    <p>Ruolo: Headquarters</p>
+                    <h3>Divine SS Learn IT</h3>
+                    <p>Ruolo: Owner SS</p>
                 </div>
             </div>
 
-            <h2>Minecraft</h2>
+            <h2 style="margin-top: 30px;">Minecraft</h2>
             <div class="grid-container">
                 <div class="item">
                     <h3>AuraMc</h3>
-                    <p>Ruolo: Staff Member</p>
+                    <p>Ruolo: Jr Mod</p>
                 </div>
             </div>
         </div>
