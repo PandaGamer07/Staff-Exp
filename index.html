@@ -4,114 +4,65 @@
     <meta charset="UTF-8">
     <style>
         :root {
-            --bg-color: #201319; /* Bordeaux scuro di fondo */
+            --bg-color: #201319;
             --sidebar-color: #120b0e;
-            --accent-color: #4da6ff; /* Blu chiaro richiesto */
-            --card-bg: #1a1a1a;
+            --accent-color: #4da6ff;
             --text-color: #ffffff;
+            --box-bg: #1a1a1a;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Segoe UI', sans-serif;
+            font-family: sans-serif;
             margin: 0;
             display: flex;
             height: 100vh;
         }
 
-        #sidebar {
-            width: 250px;
-            background-color: var(--sidebar-color);
-            padding: 30px;
-            border-right: 1px solid #333;
-        }
+        /* Sidebar */
+        #sidebar { width: 250px; background-color: var(--sidebar-color); padding: 20px; border-right: 1px solid #333; }
+        .menu-item { padding: 15px; margin-bottom: 10px; cursor: pointer; border-radius: 8px; text-align: center; border: 1px solid #333; }
+        .menu-item:hover { background-color: var(--accent-color); color: black; }
 
-        .menu-item {
-            padding: 15px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            background: #201319;
-            border: 1px solid #333;
-            border-radius: 8px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .menu-item:hover {
-            background-color: var(--accent-color);
-            color: black;
-        }
-
-        #content {
-            flex-grow: 1;
-            padding: 50px;
-            overflow-y: auto;
-        }
+        /* Content */
+        #content { flex-grow: 1; padding: 40px; overflow-y: auto; display: flex; justify-content: center; }
+        .profile-container { width: 100%; max-width: 600px; text-align: center; }
+        
+        .card { background: var(--box-bg); padding: 30px; border-radius: 15px; border: 1px solid #333; margin-bottom: 20px; }
+        
+        /* Dati Profilo */
+        .info-row { margin: 10px 0; font-size: 1.1em; }
+        .info-row b { color: var(--accent-color); }
+        .quote { font-style: italic; color: #888; margin-top: 20px; }
 
         .section { display: none; }
-
-        .card {
-            background: #120b0e;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #333;
-            margin-bottom: 30px;
-        }
-
-        h1, h2 { color: var(--accent-color); margin-top: 0; }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .item {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            transition: 0.3s;
-        }
-
-        .item:hover { border-color: var(--accent-color); }
+        h1 { color: var(--accent-color); }
     </style>
 </head>
 <body>
 
     <div id="sidebar">
-        <h2 style="text-align:center;">Panda</h2>
+        <h2>Panda</h2>
         <div class="menu-item" onclick="show('bio')">Biografia</div>
         <div class="menu-item" onclick="show('staff')">Staff Experience</div>
     </div>
 
     <div id="content">
-        <div id="bio" class="section" style="display: block;">
+        <div id="bio" class="profile-container section" style="display: block;">
             <div class="card">
-                <h1>Biografia</h1>
-                <p>Ragazzo di 15 anni appassionato di sicurezza nei server Minecraft.</p>
-                <p>Studio tecniche di ScreenSharing e sono attualmente staff su AuraMc.</p>
+                <h1>Panda</h1>
+                <div class="info-row"><b>Età:</b> 15 anni</div>
+                <div class="info-row"><b>Luogo:</b> Italia</div>
+                <div class="info-row"><b>Occupazione:</b> Studente / Staff</div>
+                <p class="quote">"Se nel primo atto c'è una pistola appesa al muro, deve sparare entro l'ultimo."</p>
             </div>
         </div>
 
-        <div id="staff" class="section">
-            <h1>Staff Experience</h1>
-            
-            <h2>Discord</h2>
-            <div class="grid-container">
-                <div class="item">
-                    <h3>Divine SS Learn IT</h3>
-                    <p>Ruolo: Owner SS</p>
-                </div>
-            </div>
-
-            <h2 style="margin-top: 30px;">Minecraft</h2>
-            <div class="grid-container">
-                <div class="item">
-                    <h3>AuraMc</h3>
-                    <p>Ruolo: Jr Mod</p>
-                </div>
+        <div id="staff" class="section" style="width: 100%;">
+            <div class="card">
+                <h2>Staff Experience</h2>
+                <p>Qui puoi aggiungere le tue esperienze seguendo il formato delle card.</p>
             </div>
         </div>
     </div>
