@@ -1,56 +1,120 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <meta charset="UTF-8">
     <style>
-        :root { --bg: #201319; --card: #120b0e; --accent: #4da6ff; /* Blu chiaro */ --text: #ffffff; }
-        body { background-color: var(--bg); color: var(--text); font-family: sans-serif; display: flex; height: 100vh; margin: 0; padding: 40px; box-sizing: border-box; }
-        
-        /* Menu Laterale */
-        #sidebar { width: 220px; display: flex; flex-direction: column; gap: 10px; margin-right: 40px; }
-        .menu-item { background: #301a24; padding: 15px; cursor: pointer; border-radius: 8px; font-weight: bold; }
-        .menu-item:hover { background: var(--accent); color: black; }
-        
-        /* Area Centrale */
-        #content { flex-grow: 1; max-width: 800px; }
-        .box { background: var(--card); padding: 40px; border-radius: 15px; border: 1px solid #333; }
-        h1 { color: var(--accent); margin-top: 0; }
-        .tag { display: inline-block; background: var(--accent); color: black; padding: 5px 10px; border-radius: 5px; font-weight: bold; margin-top: 10px; }
-        
-        /* Grid per Staff Experience */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-        .exp-card { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white; }
+        :root {
+            --bg-color: #0d0d0d;
+            --sidebar-color: #1a1a1a;
+            --accent-color: #4da6ff;
+            --text-color: #ffffff;
+            --card-bg: #1a1a1a;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        #sidebar {
+            width: 250px;
+            background-color: var(--sidebar-color);
+            padding: 20px;
+            border-right: 2px solid var(--accent-color);
+        }
+
+        .menu-item {
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: 1px solid #333;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .menu-item:hover {
+            background-color: var(--accent-color);
+            color: black;
+        }
+
+        #content {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .section { display: none; }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        h1, h2 { color: var(--accent-color); }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .item {
+            background: #262626;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
     </style>
 </head>
 <body>
 
     <div id="sidebar">
-        <h2 style="color:var(--accent)">Panda</h2>
-        <div class="menu-item" onclick="show('bio')">👤 Bio</div>
-        <div class="menu-item" onclick="show('staff')">💼 Staff Experience</div>
+        <h2>Panda</h2>
+        <div class="menu-item" onclick="show('bio')">Biografia</div>
+        <div class="menu-item" onclick="show('staff')">Staff Experience</div>
     </div>
 
     <div id="content">
-        <div id="bio" class="box">
-            <h1>Panda</h1>
-            <p>Ciao, sono un ragazzo di <b>15 anni</b> con una grande passione per il mondo dello staff nei server Minecraft.</p>
-            <p>Mi sto specializzando nello studio di tecniche di <b>ScreenSharing (SS)</b>.</p>
-            <p><b>Attualmente:</b> Staff su <b>AuraMc</b>.</p>
-            <div class="tag">STUDENTE (INF)</div>
+        <div id="bio" class="section" style="display: block;">
+            <div class="card">
+                <h1>Biografia</h1>
+                <p>Ragazzo di 15 anni appassionato di sicurezza nei server Minecraft.</p>
+                <p>Studio tecniche di ScreenSharing (SS) e sono attualmente staff su AuraMc.</p>
+            </div>
         </div>
 
-        <div id="staff" class="box" style="display:none;">
-            <h2>Staff Experience</h2>
-            <div class="grid">
-                <a href="LINK_IMGUR" class="exp-card"><h3>AuraMc</h3><p>Staff Member</p></a>
-                <a href="LINK_IMGUR" class="exp-card"><h3>Hollow Bypass</h3><p>Headquarters</p></a>
+        <div id="staff" class="section">
+            <h1>Staff Experience</h1>
+            
+            <h2>Discord</h2>
+            <div class="grid-container">
+                <div class="item">
+                    <h3>Hollow Bypass</h3>
+                    <p>Ruolo: Headquarters</p>
+                </div>
+            </div>
+
+            <h2>Minecraft</h2>
+            <div class="grid-container">
+                <div class="item">
+                    <h3>AuraMc</h3>
+                    <p>Ruolo: Staff Member</p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
         function show(id) {
-            document.getElementById('bio').style.display = (id === 'bio') ? 'block' : 'none';
-            document.getElementById('staff').style.display = (id === 'staff') ? 'block' : 'none';
+            document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
         }
     </script>
 </body>
