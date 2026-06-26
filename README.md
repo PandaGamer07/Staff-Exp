@@ -2,64 +2,69 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panda - Portfolio</title>
     <style>
-        body { background-color: #201319; color: white; font-family: sans-serif; display: flex; margin: 0; height: 100vh; }
+        :root { --bg: #201319; --sidebar: #301a24; --accent: #b30026; --text: #ffffff; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; display: flex; margin: 0; height: 100vh; }
         
-        /* Menu Laterale */
-        #sidebar { width: 250px; padding: 20px; }
-        .menu-item { background: #301a24; padding: 15px; margin-bottom: 10px; cursor: pointer; border-radius: 8px; }
-        .menu-item:hover { background: #5a263e; }
+        #sidebar { width: 250px; padding: 30px; display: flex; flex-direction: column; gap: 15px; }
+        .menu-item { background: var(--sidebar); padding: 15px; cursor: pointer; border-radius: 8px; text-align: center; transition: 0.3s; }
+        .menu-item:hover { background: var(--accent); }
         
-        /* Contenuto Principale */
         #content { flex-grow: 1; padding: 50px; overflow-y: auto; }
-        .card { background: #120b0e; padding: 20px; border-radius: 10px; border: 1px solid #333; margin-bottom: 20px; }
+        .card { background: #120b0e; padding: 30px; border-radius: 12px; border: 1px solid #444; margin-bottom: 20px; }
         
-        /* Link Stile */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .exp-card { background: #1a1a1a; padding: 15px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white; display: block; }
-        .exp-card:hover { border-color: #b30026; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .exp-card { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white; display: block; transition: 0.3s; }
+        .exp-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        
+        h2 { color: var(--accent); }
     </style>
 </head>
 <body>
 
     <div id="sidebar">
+        <h2 style="text-align: center;">Panda</h2>
         <div class="menu-item" onclick="show('bio')">👤 Bio</div>
         <div class="menu-item" onclick="show('staff')">💼 Staff Experience</div>
     </div>
 
     <div id="content">
         <div id="bio" class="page">
-            <div class="card" style="text-align: center;">
-                <h2>Filmografo</h2>
-                <p>🔍 DFIR & PC Checker</p>
+            <div class="card">
+                <h1>Panda</h1>
+                <p>Ciao, sono un ragazzo di <b>15 anni</b> con una grande passione per il mondo dello staff nei server Minecraft.</p>
+                <p>Mi sto specializzando nello studio di tecniche di <b>ScreenSharing (SS)</b> per mantenere la sicurezza dei server.</p>
+                <p><b>Attualmente:</b> Staff su <b>AuraMc</b>.</p>
+                <p><i>"Se nel primo atto c'è una pistola appesa al muro, deve sparare entro l'ultimo."</i></p>
             </div>
         </div>
 
         <div id="staff" class="page" style="display:none;">
             <h2>Staff Experience</h2>
             <div class="grid">
-                <a href="URL_DEL_TUO_IMGUR" class="exp-card" target="_blank">
-                    <h3>Hollow Bypass</h3>
-                    <p>2025 - HEADQUARTERS</p>
+                <a href="LINK_TUA_IMMAGINE_IMGUR" class="exp-card" target="_blank">
+                    <h3>AuraMc</h3>
+                    <p>Attuale - Staff Member</p>
                 </a>
-                <a href="URL_DEL_TUO_IMGUR" class="exp-card" target="_blank">
-                    <h3>FruitMC</h3>
-                    <p>2025 - SR. MOD</p>
+                <a href="LINK_TUA_IMMAGINE_IMGUR" class="exp-card" target="_blank">
+                    <h3>Hollow Bypass</h3>
+                    <p>2025 - Headquarters</p>
                 </a>
             </div>
         </div>
     </div>
 
     <audio id="bg-music" loop>
-        <source src="TUO_FILE_AUDIO.mp3" type="audio/mpeg">
+        <source src="LINK_TUA_CANZONE.mp3" type="audio/mpeg">
     </audio>
 
     <script>
         function show(id) {
             document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
             document.getElementById(id).style.display = 'block';
-            // Avvia musica al primo click
-            document.getElementById('bg-music').play();
+            document.getElementById('bg-music').play(); // Avvia musica al click
         }
     </script>
 </body>
