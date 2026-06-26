@@ -1,70 +1,56 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panda - Portfolio</title>
     <style>
-        :root { --bg: #201319; --sidebar: #301a24; --accent: #b30026; --text: #ffffff; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; display: flex; margin: 0; height: 100vh; }
+        :root { --bg: #201319; --card: #120b0e; --accent: #4da6ff; /* Blu chiaro */ --text: #ffffff; }
+        body { background-color: var(--bg); color: var(--text); font-family: sans-serif; display: flex; height: 100vh; margin: 0; padding: 40px; box-sizing: border-box; }
         
-        #sidebar { width: 250px; padding: 30px; display: flex; flex-direction: column; gap: 15px; }
-        .menu-item { background: var(--sidebar); padding: 15px; cursor: pointer; border-radius: 8px; text-align: center; transition: 0.3s; }
-        .menu-item:hover { background: var(--accent); }
+        /* Menu Laterale */
+        #sidebar { width: 220px; display: flex; flex-direction: column; gap: 10px; margin-right: 40px; }
+        .menu-item { background: #301a24; padding: 15px; cursor: pointer; border-radius: 8px; font-weight: bold; }
+        .menu-item:hover { background: var(--accent); color: black; }
         
-        #content { flex-grow: 1; padding: 50px; overflow-y: auto; }
-        .card { background: #120b0e; padding: 30px; border-radius: 12px; border: 1px solid #444; margin-bottom: 20px; }
+        /* Area Centrale */
+        #content { flex-grow: 1; max-width: 800px; }
+        .box { background: var(--card); padding: 40px; border-radius: 15px; border: 1px solid #333; }
+        h1 { color: var(--accent); margin-top: 0; }
+        .tag { display: inline-block; background: var(--accent); color: black; padding: 5px 10px; border-radius: 5px; font-weight: bold; margin-top: 10px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-        .exp-card { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white; display: block; transition: 0.3s; }
-        .exp-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        
-        h2 { color: var(--accent); }
+        /* Grid per Staff Experience */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .exp-card { background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333; text-decoration: none; color: white; }
     </style>
 </head>
 <body>
 
     <div id="sidebar">
-        <h2 style="text-align: center;">Panda</h2>
+        <h2 style="color:var(--accent)">Panda</h2>
         <div class="menu-item" onclick="show('bio')">👤 Bio</div>
         <div class="menu-item" onclick="show('staff')">💼 Staff Experience</div>
     </div>
 
     <div id="content">
-        <div id="bio" class="page">
-            <div class="card">
-                <h1>Panda</h1>
-                <p>Ciao, sono un ragazzo di <b>15 anni</b> con una grande passione per il mondo dello staff nei server Minecraft.</p>
-                <p>Mi sto specializzando nello studio di tecniche di <b>ScreenSharing (SS)</b> per mantenere la sicurezza dei server.</p>
-                <p><b>Attualmente:</b> Staff su <b>AuraMc</b>.</p>
-                <p><i>"Se nel primo atto c'è una pistola appesa al muro, deve sparare entro l'ultimo."</i></p>
-            </div>
+        <div id="bio" class="box">
+            <h1>Panda</h1>
+            <p>Ciao, sono un ragazzo di <b>15 anni</b> con una grande passione per il mondo dello staff nei server Minecraft.</p>
+            <p>Mi sto specializzando nello studio di tecniche di <b>ScreenSharing (SS)</b>.</p>
+            <p><b>Attualmente:</b> Staff su <b>AuraMc</b>.</p>
+            <div class="tag">STUDENTE (INF)</div>
         </div>
 
-        <div id="staff" class="page" style="display:none;">
+        <div id="staff" class="box" style="display:none;">
             <h2>Staff Experience</h2>
             <div class="grid">
-                <a href="LINK_TUA_IMMAGINE_IMGUR" class="exp-card" target="_blank">
-                    <h3>AuraMc</h3>
-                    <p>Attuale - Staff Member</p>
-                </a>
-                <a href="LINK_TUA_IMMAGINE_IMGUR" class="exp-card" target="_blank">
-                    <h3>Hollow Bypass</h3>
-                    <p>2025 - Headquarters</p>
-                </a>
+                <a href="LINK_IMGUR" class="exp-card"><h3>AuraMc</h3><p>Staff Member</p></a>
+                <a href="LINK_IMGUR" class="exp-card"><h3>Hollow Bypass</h3><p>Headquarters</p></a>
             </div>
         </div>
     </div>
 
-    <audio id="bg-music" loop>
-        <source src="LINK_TUA_CANZONE.mp3" type="audio/mpeg">
-    </audio>
-
     <script>
         function show(id) {
-            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-            document.getElementById(id).style.display = 'block';
-            document.getElementById('bg-music').play(); // Avvia musica al click
+            document.getElementById('bio').style.display = (id === 'bio') ? 'block' : 'none';
+            document.getElementById('staff').style.display = (id === 'staff') ? 'block' : 'none';
         }
     </script>
 </body>
