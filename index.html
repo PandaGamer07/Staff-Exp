@@ -4,67 +4,73 @@
     <meta charset="UTF-8">
     <title>Panda | Portfolio</title>
     <style>
-        :root { 
-            --bg: #0b1e22; /* Azzurro scuro stile Partizione */
-            --card: #121212; 
-            --text: #ffffff;
-            /* Colori Ruoli */
-            --role-owner: #ff3333;
-            --role-admin: #ff6666;
-            --role-mod: #3399ff;
-            --role-jrmod: #008000;
-            --role-helper: #00ff00;
-            --role-logs: #9933ff;
-            --role-manager: #ff4d4d;
+        :root {
+            --bg: #0b1e22;
+            --card-bg: #121212;
+            --text-main: #ffffff;
+            /* Colori ruoli stile pulito */
+            --green: #2ecc71;
+            --red: #e74c3c;
+            --blue: #3498db;
+            --purple: #9b59b6;
+            --dark-green: #27ae60;
         }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 40px; margin: 0; }
-        .wrapper { background: var(--card); width: 100%; max-width: 850px; padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        body { background-color: var(--bg); color: var(--text-main); font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 50px; margin: 0; }
+        .container { width: 100%; max-width: 900px; }
         .header { text-align: center; margin-bottom: 40px; }
-        .pfp { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--role-mod); object-fit: cover; margin-bottom: 20px; }
-        h1 { margin: 0; font-size: 2.5em; color: #33ccff; }
-        .subtitle { font-size: 1.2em; color: #aaa; margin-top: 5px; }
+        .pfp { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--blue); margin-bottom: 15px; }
+        h1 { margin: 5px 0; font-size: 2.2em; }
+        .role-text { color: var(--blue); font-weight: 600; margin-bottom: 20px; }
         
-        .section-title { font-size: 1.3em; margin: 30px 0 20px; border-left: 4px solid var(--role-mod); padding-left: 15px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .card { background: #1a1a1a; padding: 20px; border-radius: 10px; border: 1px solid #333; text-decoration: none; color: white; transition: 0.3s; }
-        .card:hover { border-color: var(--role-mod); }
-        .card h3 { margin: 0 0 10px 0; color: white; font-size: 1.2em; }
+        .section-title { font-size: 1.2em; margin: 30px 0 15px; border-left: 4px solid var(--blue); padding-left: 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { background: var(--card-bg); padding: 25px; border-radius: 10px; border: 1px solid #222; text-decoration: none; color: white; transition: 0.3s; }
+        .card:hover { border-color: #444; }
+        .card h3 { margin: 0 0 10px 0; font-size: 1.1em; }
+        .card p { color: #888; font-size: 0.85em; margin: 5px 0; }
         
-        /* Tag Ruoli */
-        .tag { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.75em; margin-right: 5px; margin-top: 5px; font-weight: bold; }
-        .owner { background: var(--role-owner); }
-        .admin { background: var(--role-admin); }
-        .mod { background: var(--role-mod); }
-        .jrmod { background: var(--role-jrmod); }
-        .helper { background: var(--role-helper); color: black; }
-        .logs { background: var(--role-logs); }
-        .manager { background: var(--role-manager); }
+        /* Tag Ruoli corretti */
+        .tag { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.7em; font-weight: bold; margin-right: 5px; }
+        .tag.helper { background: var(--green); color: black; }
+        .tag.owner { background: var(--red); }
+        .tag.jrmod { background: var(--dark-green); }
+        .tag.mod { background: var(--blue); }
+        .tag.admin { background: var(--red); }
+        .tag.logs { background: var(--purple); }
+        .tag.manager { background: var(--red); }
     </style>
 </head>
 <body>
 
-<div class="wrapper">
+<div class="container">
     <div class="header">
         <img src="pfp.jpeg" class="pfp" alt="Panda">
         <h1>Panda</h1>
-        <div class="subtitle">Staff & Management</div>
+        <div class="role-text">Staff & Management</div>
     </div>
 
+    <!-- Bio & Skills -->
+    <h2 class="section-title">About Me</h2>
+    <div class="card">
+        <p>Experienced in server administration, staff management, and security. I specialize in ScreenSharing (SS) and community operations. My goal is to maintain a professional and secure environment for every community I work with.</p>
+    </div>
+
+    <!-- Currently -->
     <h2 class="section-title">Currently</h2>
     <div class="grid">
-        <a href="https://imgur.com/a/cEZLlLs" class="card"><h3>AuraMc</h3><span class="tag jrmod">JR MOD</span><span class="tag logs">LOGS VERIFIED</span></a>
-        <a href="https://imgur.com/a/cEZLlLs" class="card"><h3>Divine SS Learn</h3><span class="tag owner">OWNER</span><span class="tag mod">SCREENSHARE</span></a>
+        <a href="https://imgur.com/a/R3inq65" class="card"><h3>AuraMc</h3><p>June 2026 - Present</p><span class="tag jrmod">JR MOD</span><span class="tag logs">LOGS VERIFIED</span></a>
+        <a href="https://imgur.com/a/cEZLlLs" class="card"><h3>Divine SS Learn</h3><p>Present</p><span class="tag owner">OWNER</span><span class="tag mod">SCREENSHARE</span></a>
     </div>
 
+    <!-- Staff Experience -->
     <h2 class="section-title">Staff Experience</h2>
     <div class="grid">
-        <a href="https://imgur.com/a/JC8s0qb" class="card"><h3>StepMc</h3><span class="tag jrmod">MOD SUPP</span><span class="tag manager">MEDIA MANAGER</span></a>
+        <a href="https://imgur.com/a/JC8s0qb" class="card"><h3>StepMc</h3><span class="tag mod">MOD SUPP</span><span class="tag manager">MEDIA MANAGER</span></a>
         <a href="https://imgur.com/a/JhKghQ5" class="card"><h3>ZetsyNetwork</h3><span class="tag helper">HELPER SUPP</span></a>
         <a href="https://imgur.com/a/ZQLfDEQ" class="card"><h3>FruitMc</h3><span class="tag admin">ADMIN SUPP</span><span class="tag logs">LOGS VERIFIED</span><span class="tag manager">STAFF MANAGER</span></a>
-        <a href="https://imgur.com/a/YwIrsFt" class="card"><h3>HeroMc</h3><span class="tag mod">SR MOD SS</span><span class="tag manager">HEAD OF SS</span><span class="tag manager">STAFF MANAGER</span></a>
+        <a href="https://imgur.com/a/YwIrsFt" class="card"><h3>HeroMc</h3><span class="tag mod">SR MOD SS</span><span class="tag manager">HEAD OF SS</span></a>
         <a href="https://imgur.com/a/oYR8CvI" class="card"><h3>LunaryMc</h3><span class="tag helper">HELPER SUPP</span></a>
         <a href="https://imgur.com/a/EMof1Wy" class="card"><h3>ImperialMc</h3><span class="tag helper">HELPER SUPP</span></a>
-        <a href="https://imgur.com/a/R3inq65" class="card"><h3>AuraMc</h3><span class="tag jrmod">JR MOD SUPP</span><span class="tag logs">LOGS VERIFIED</span></a>
     </div>
 </div>
 
