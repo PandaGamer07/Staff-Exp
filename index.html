@@ -2,48 +2,148 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Panda - Portfolio</title>
+    <title>Panda Portfolio</title>
     <style>
-        :root { --bg: #201319; --card: #121212; --accent: #ff3366; --text: #ffffff; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 40px; margin: 0; }
-        .container { background: var(--card); width: 100%; max-width: 800px; padding: 40px; border-radius: 20px; text-align: center; }
-        .pfp { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 20px; object-fit: cover; }
-        h1 { color: var(--accent); margin: 10px 0; }
-        .desc { color: #aaa; margin-bottom: 20px; }
-        .info { margin: 5px 0; font-size: 1.1em; }
-        .info b { color: var(--accent); }
-        .section { margin-top: 40px; text-align: left; }
-        .section-title { font-size: 1.4em; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px; color: var(--text); text-align: center; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .card { background: #1a1a1a; padding: 15px; border-radius: 10px; border: 1px solid #333; text-decoration: none; color: white; transition: 0.3s; display: block; }
-        .card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .card h3 { margin: 0 0 5px 0; color: var(--accent); }
-        .card p { margin: 0; font-size: 0.85em; color: #ccc; }
+        /* STILE GLOBALE E COLORI */
+        :root {
+            --bg-color: #201319;
+            --sidebar-bg: #120b0e;
+            --main-card-bg: #121212;
+            --accent-color: #ff3366;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* MENU LATERALE */
+        #sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            padding: 40px 20px;
+            border-right: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .menu-item {
+            padding: 18px;
+            background: #201319;
+            border: 1px solid #333;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .menu-item:hover { background-color: var(--accent-color); color: white; }
+
+        /* AREA CONTENUTO */
+        #content {
+            flex-grow: 1;
+            padding: 60px;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+        }
+        .profile-card {
+            background: var(--main-card-bg);
+            width: 100%;
+            max-width: 650px;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #222;
+        }
+
+        /* FOTO E INFO */
+        .pfp {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            margin-bottom: 25px;
+            object-fit: cover;
+        }
+        h1 { color: var(--accent-color); margin: 0; font-size: 2.2em; }
+        .role { color: var(--text-gray); font-size: 1.1em; margin: 10px 0 30px; }
+        .info-box { margin-bottom: 40px; }
+        .info-row { margin: 8px 0; font-size: 1.05em; }
+        .info-row b { color: var(--accent-color); }
+
+        /* SEZIONI EXPERIENCE */
+        .section-title {
+            text-align: center;
+            font-size: 1.3em;
+            margin: 40px 0 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .exp-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+        .exp-card:hover { border-color: var(--accent-color); transform: translateY(-3px); }
+        .exp-card h3 { margin: 0 0 8px 0; color: var(--accent-color); font-size: 1em; }
+        .exp-card p { margin: 0; font-size: 0.8em; color: #ccc; }
+        .section { display: none; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <img src="https://cdn.discordapp.com/attachments/1420462603620319263/1523291998688383208/pfp.jpeg" class="pfp" alt="Panda">
-    <h1>Panda</h1>
-    <div class="desc">🔍 Controllore DFIR e PC</div>
-    <div class="info"><b>Età:</b> 15 anni</div>
-    <div class="info"><b>Luogo:</b> Italia</div>
-    <div class="info"><b>Occupazione:</b> Studente (INF)</div>
+    <div id="sidebar">
+        <div class="menu-item" onclick="show('bio')">Biografia</div>
+        <div class="menu-item" onclick="show('staff')">Staff Experience</div>
+    </div>
 
-    <div class="section">
-        <div class="section-title">💼 STAFF EXPERIENCE</div>
-        <div class="grid">
-            <a href="https://imgur.com/a/JC8s0qb" class="card"><h3>StepMc</h3><p>Mod Supporter, Media Manager, Social Media Manager (Gen 2025 - Giu 2025)</p></a>
-            <a href="https://imgur.com/a/JhKghQ5" class="card"><h3>ZetsyNetwork</h3><p>Helper Supporter</p></a>
-            <a href="https://imgur.com/a/ZQLfDEQ" class="card"><h3>FruitMc</h3><p>Admin Supporter, Logs Verified, Gestore Staff, Media Manager, Gestore Roll (Set 2025 - Giu 2026)</p></a>
-            <a href="https://imgur.com/a/YwIrsFt" class="card"><h3>HeroMc</h3><p>Sr Mod SS, Head of SS, Gestore Media, Gestore Staff, Gestore Discord Staff, Gestore UnBan/UnMute, Head of Logs, Gestore Community (Giu 2026)</p></a>
-            <a href="https://imgur.com/a/oYR8CvI" class="card"><h3>LunaryMc</h3><p>Helper Supporter (Giu 2026 - Lug 2026)</p></a>
-            <a href="https://imgur.com/a/EMof1Wy" class="card"><h3>ImperialMc Network</h3><p>Helper Supporter (Giu 2026 - Lug 2026)</p></a>
-            <a href="https://imgur.com/a/R3inq65" class="card"><h3>AuraMc</h3><p>Jr Mod Supporter, Logs Verified (Giu 2026 - Lug 2026)</p></a>
+    <div id="content">
+        <div id="bio" class="section profile-card" style="display:block;">
+            <img src="https://cdn.discordapp.com/attachments/1420462603620319263/1523291998688383208/pfp.jpeg" class="pfp" alt="Profile">
+            <h1>Panda</h1>
+            <div class="role">🔍 Controllore DFIR e PC</div>
+            <div class="info-box">
+                <div class="info-row"><b>Età:</b> 15 anni</div>
+                <div class="info-row"><b>Luogo:</b> Italia</div>
+                <div class="info-row"><b>Occupazione:</b> Studente (INF)</div>
+            </div>
+        </div>
+
+        <div id="staff" class="section profile-card" style="width:100%; max-width:800px;">
+            <div class="section-title">💼 STAFF EXPERIENCE</div>
+            <div class="grid-container">
+                <a href="https://imgur.com/a/JC8s0qb" class="exp-card"><h3>StepMc</h3><p>Mod Supporter, Media Manager, Social Media Manager (Gen-Giu 2025)</p></a>
+                <a href="https://imgur.com/a/JhKghQ5" class="exp-card"><h3>ZetsyNetwork</h3><p>Helper Supporter</p></a>
+                <a href="https://imgur.com/a/ZQLfDEQ" class="exp-card"><h3>FruitMc</h3><p>Admin, Logs Verified, Gestore Staff, Media (Set 2025 - Giu 2026)</p></a>
+                <a href="https://imgur.com/a/YwIrsFt" class="exp-card"><h3>HeroMc</h3><p>Sr Mod SS, Head of SS, Gestore Discord/Staff (Giu 2026)</p></a>
+                <a href="https://imgur.com/a/oYR8CvI" class="exp-card"><h3>LunaryMc</h3><p>Helper Supporter (Giu-Lug 2026)</p></a>
+                <a href="https://imgur.com/a/EMof1Wy" class="exp-card"><h3>ImperialMc Network</h3><p>Helper Supporter (Giu-Lug 2026)</p></a>
+                <a href="https://imgur.com/a/R3inq65" class="exp-card"><h3>AuraMc</h3><p>Jr Mod Supporter, Logs Verified (Giu-Lug 2026)</p></a>
+            </div>
         </div>
     </div>
-</div>
 
+    <script>
+        function show(id) {
+            document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
 </body>
 </html>
