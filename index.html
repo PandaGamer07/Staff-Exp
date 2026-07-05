@@ -8,36 +8,39 @@
             --bg: #0b1e22;
             --card-bg: #121212;
             --text-main: #ffffff;
-            /* Colori ruoli stile pulito */
+            --blue: #3498db;
             --green: #2ecc71;
             --red: #e74c3c;
-            --blue: #3498db;
             --purple: #9b59b6;
-            --dark-green: #27ae60;
         }
         body { background-color: var(--bg); color: var(--text-main); font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 50px; margin: 0; }
         .container { width: 100%; max-width: 900px; }
-        .header { text-align: center; margin-bottom: 40px; }
-        .pfp { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--blue); margin-bottom: 15px; }
-        h1 { margin: 5px 0; font-size: 2.2em; }
-        .role-text { color: var(--blue); font-weight: 600; margin-bottom: 20px; }
         
+        /* Header & Bio */
+        .header { text-align: center; margin-bottom: 40px; }
+        .pfp { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--blue); margin-bottom: 15px; object-fit: cover; }
+        h1 { margin: 5px 0; font-size: 2.2em; }
+        .bio-text { color: #ccc; line-height: 1.6; max-width: 600px; margin: 20px auto; }
+        
+        /* Info Line */
+        .info-bar { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; font-weight: bold; }
+        .info-bar span { color: var(--blue); }
+
+        /* Sezioni */
         .section-title { font-size: 1.2em; margin: 30px 0 15px; border-left: 4px solid var(--blue); padding-left: 10px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .card { background: var(--card-bg); padding: 25px; border-radius: 10px; border: 1px solid #222; text-decoration: none; color: white; transition: 0.3s; }
-        .card:hover { border-color: #444; }
-        .card h3 { margin: 0 0 10px 0; font-size: 1.1em; }
-        .card p { color: #888; font-size: 0.85em; margin: 5px 0; }
         
-        /* Tag Ruoli corretti */
-        .tag { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.7em; font-weight: bold; margin-right: 5px; }
-        .tag.helper { background: var(--green); color: black; }
-        .tag.owner { background: var(--red); }
-        .tag.jrmod { background: var(--dark-green); }
-        .tag.mod { background: var(--blue); }
-        .tag.admin { background: var(--red); }
-        .tag.logs { background: var(--purple); }
-        .tag.manager { background: var(--red); }
+        /* Cards Naturali */
+        .card { background: var(--card-bg); padding: 20px; border-radius: 8px; border: 1px solid #222; text-decoration: none; color: white; transition: 0.3s; display: block; }
+        .card:hover { border-color: #444; }
+        .card h3 { margin: 0 0 8px 0; font-size: 1.1em; }
+        .card .date { color: #666; font-size: 0.8em; margin-bottom: 10px; }
+        
+        .tag { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 0.75em; font-weight: bold; margin-right: 5px; }
+        .tag.helper { background: #1a3326; color: var(--green); border: 1px solid var(--green); }
+        .tag.mod { background: #1a2a33; color: var(--blue); border: 1px solid var(--blue); }
+        .tag.admin { background: #331a1a; color: var(--red); border: 1px solid var(--red); }
+        .tag.logs { background: #261a33; color: var(--purple); border: 1px solid var(--purple); }
     </style>
 </head>
 <body>
@@ -46,31 +49,31 @@
     <div class="header">
         <img src="pfp.jpeg" class="pfp" alt="Panda">
         <h1>Panda</h1>
-        <div class="role-text">Staff & Management</div>
+        <div class="bio-text">
+            Ciao, sono un ragazzo di 15 anni con una grande passione per il mondo dello staff nei server Minecraft. Mi sto specializzando nello studio di tecniche di <b>ScreenSharing (SS)</b> per mantenere la sicurezza dei server.
+        </div>
     </div>
 
-    <!-- Bio & Skills -->
-    <h2 class="section-title">About Me</h2>
-    <div class="card">
-        <p>Experienced in server administration, staff management, and security. I specialize in ScreenSharing (SS) and community operations. My goal is to maintain a professional and secure environment for every community I work with.</p>
+    <div class="info-bar">
+        <div>Age: <span>15</span></div>
+        <div>Place: <span>Italy</span></div>
+        <div>Occupation: <span>Student / Staff</span></div>
     </div>
 
-    <!-- Currently -->
     <h2 class="section-title">Currently</h2>
     <div class="grid">
-        <a href="https://imgur.com/a/R3inq65" class="card"><h3>AuraMc</h3><p>June 2026 - Present</p><span class="tag jrmod">JR MOD</span><span class="tag logs">LOGS VERIFIED</span></a>
-        <a href="https://imgur.com/a/cEZLlLs" class="card"><h3>Divine SS Learn</h3><p>Present</p><span class="tag owner">OWNER</span><span class="tag mod">SCREENSHARE</span></a>
+        <a href="https://imgur.com/a/R3inq65" class="card"><h3>AuraMc</h3><div class="date">June 2026 - Present</div><span class="tag mod">JR MOD</span><span class="tag logs">LOGS VERIFIED</span></a>
+        <a href="https://imgur.com/a/cEZLlLs" class="card"><h3>Divine SS Learn</h3><div class="date">Present</div><span class="tag admin">OWNER</span><span class="tag mod">SCREENSHARE</span></a>
     </div>
 
-    <!-- Staff Experience -->
     <h2 class="section-title">Staff Experience</h2>
     <div class="grid">
-        <a href="https://imgur.com/a/JC8s0qb" class="card"><h3>StepMc</h3><span class="tag mod">MOD SUPP</span><span class="tag manager">MEDIA MANAGER</span></a>
-        <a href="https://imgur.com/a/JhKghQ5" class="card"><h3>ZetsyNetwork</h3><span class="tag helper">HELPER SUPP</span></a>
-        <a href="https://imgur.com/a/ZQLfDEQ" class="card"><h3>FruitMc</h3><span class="tag admin">ADMIN SUPP</span><span class="tag logs">LOGS VERIFIED</span><span class="tag manager">STAFF MANAGER</span></a>
-        <a href="https://imgur.com/a/YwIrsFt" class="card"><h3>HeroMc</h3><span class="tag mod">SR MOD SS</span><span class="tag manager">HEAD OF SS</span></a>
-        <a href="https://imgur.com/a/oYR8CvI" class="card"><h3>LunaryMc</h3><span class="tag helper">HELPER SUPP</span></a>
-        <a href="https://imgur.com/a/EMof1Wy" class="card"><h3>ImperialMc</h3><span class="tag helper">HELPER SUPP</span></a>
+        <a href="https://imgur.com/a/JC8s0qb" class="card"><h3>StepMc</h3><div class="date">Jan 2025 - Jun 2025</div><span class="tag mod">MOD SUPP</span><span class="tag admin">MEDIA MANAGER</span></a>
+        <a href="https://imgur.com/a/JhKghQ5" class="card"><h3>ZetsyNetwork</h3><div class="date">2025</div><span class="tag helper">HELPER SUPP</span></a>
+        <a href="https://imgur.com/a/ZQLfDEQ" class="card"><h3>FruitMc</h3><div class="date">Sep 2025 - Jun 2026</div><span class="tag admin">ADMIN SUPP</span><span class="tag logs">LOGS VERIFIED</span></a>
+        <a href="https://imgur.com/a/YwIrsFt" class="card"><h3>HeroMc</h3><div class="date">June 2026</div><span class="tag mod">SR MOD SS</span><span class="tag admin">HEAD OF SS</span></a>
+        <a href="https://imgur.com/a/oYR8CvI" class="card"><h3>LunaryMc</h3><div class="date">Jun 2026 - Jul 2026</div><span class="tag helper">HELPER SUPP</span></a>
+        <a href="https://imgur.com/a/EMof1Wy" class="card"><h3>ImperialMc</h3><div class="date">Jun 2026 - Jul 2026</div><span class="tag helper">HELPER SUPP</span></a>
     </div>
 </div>
 
