@@ -2,76 +2,48 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
+    <title>Panda - Portfolio</title>
     <style>
-        :root {
-            --bg-color: #201319;
-            --sidebar-color: #120b0e;
-            --accent-color: #4da6ff;
-            --text-color: #ffffff;
-            --box-bg: #1a1a1a;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: sans-serif;
-            margin: 0;
-            display: flex;
-            height: 100vh;
-        }
-
-        /* Sidebar */
-        #sidebar { width: 250px; background-color: var(--sidebar-color); padding: 20px; border-right: 1px solid #333; }
-        .menu-item { padding: 15px; margin-bottom: 10px; cursor: pointer; border-radius: 8px; text-align: center; border: 1px solid #333; }
-        .menu-item:hover { background-color: var(--accent-color); color: black; }
-
-        /* Content */
-        #content { flex-grow: 1; padding: 40px; overflow-y: auto; display: flex; justify-content: center; }
-        .profile-container { width: 100%; max-width: 600px; text-align: center; }
-        
-        .card { background: var(--box-bg); padding: 30px; border-radius: 15px; border: 1px solid #333; margin-bottom: 20px; }
-        
-        /* Dati Profilo */
-        .info-row { margin: 10px 0; font-size: 1.1em; }
-        .info-row b { color: var(--accent-color); }
-        .quote { font-style: italic; color: #888; margin-top: 20px; }
-
-        .section { display: none; }
-        h1 { color: var(--accent-color); }
+        :root { --bg: #201319; --card: #121212; --accent: #ff3366; --text: #ffffff; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 40px; margin: 0; }
+        .container { background: var(--card); width: 100%; max-width: 800px; padding: 40px; border-radius: 20px; text-align: center; }
+        .pfp { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 20px; object-fit: cover; }
+        h1 { color: var(--accent); margin: 10px 0; }
+        .desc { color: #aaa; margin-bottom: 20px; }
+        .info { margin: 5px 0; font-size: 1.1em; }
+        .info b { color: var(--accent); }
+        .section { margin-top: 40px; text-align: left; }
+        .section-title { font-size: 1.4em; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px; color: var(--text); text-align: center; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .card { background: #1a1a1a; padding: 15px; border-radius: 10px; border: 1px solid #333; text-decoration: none; color: white; transition: 0.3s; display: block; }
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .card h3 { margin: 0 0 5px 0; color: var(--accent); }
+        .card p { margin: 0; font-size: 0.85em; color: #ccc; }
     </style>
 </head>
 <body>
 
-    <div id="sidebar">
-        <h2>Panda</h2>
-        <div class="menu-item" onclick="show('bio')">Biografia</div>
-        <div class="menu-item" onclick="show('staff')">Staff Experience</div>
-    </div>
+<div class="container">
+    <img src="https://cdn.discordapp.com/attachments/1420462603620319263/1523291998688383208/pfp.jpeg" class="pfp" alt="Panda">
+    <h1>Panda</h1>
+    <div class="desc">🔍 Controllore DFIR e PC</div>
+    <div class="info"><b>Età:</b> 15 anni</div>
+    <div class="info"><b>Luogo:</b> Italia</div>
+    <div class="info"><b>Occupazione:</b> Studente (INF)</div>
 
-    <div id="content">
-        <div id="bio" class="profile-container section" style="display: block;">
-            <div class="card">
-                <h1>Panda</h1>
-                <div class="info-row"><b>Età:</b> 15 anni</div>
-                <div class="info-row"><b>Luogo:</b> Italia</div>
-                <div class="info-row"><b>Occupazione:</b> Studente / Staff</div>
-                <p class="quote">"Se nel primo atto c'è una pistola appesa al muro, deve sparare entro l'ultimo."</p>
-            </div>
-        </div>
-
-        <div id="staff" class="section" style="width: 100%;">
-            <div class="card">
-                <h2>Staff Experience</h2>
-                <p>Qui puoi aggiungere le tue esperienze seguendo il formato delle card.</p>
-            </div>
+    <div class="section">
+        <div class="section-title">💼 STAFF EXPERIENCE</div>
+        <div class="grid">
+            <a href="https://imgur.com/a/JC8s0qb" class="card"><h3>StepMc</h3><p>Mod Supporter, Media Manager, Social Media Manager (Gen 2025 - Giu 2025)</p></a>
+            <a href="https://imgur.com/a/JhKghQ5" class="card"><h3>ZetsyNetwork</h3><p>Helper Supporter</p></a>
+            <a href="https://imgur.com/a/ZQLfDEQ" class="card"><h3>FruitMc</h3><p>Admin Supporter, Logs Verified, Gestore Staff, Media Manager, Gestore Roll (Set 2025 - Giu 2026)</p></a>
+            <a href="https://imgur.com/a/YwIrsFt" class="card"><h3>HeroMc</h3><p>Sr Mod SS, Head of SS, Gestore Media, Gestore Staff, Gestore Discord Staff, Gestore UnBan/UnMute, Head of Logs, Gestore Community (Giu 2026)</p></a>
+            <a href="https://imgur.com/a/oYR8CvI" class="card"><h3>LunaryMc</h3><p>Helper Supporter (Giu 2026 - Lug 2026)</p></a>
+            <a href="https://imgur.com/a/EMof1Wy" class="card"><h3>ImperialMc Network</h3><p>Helper Supporter (Giu 2026 - Lug 2026)</p></a>
+            <a href="https://imgur.com/a/R3inq65" class="card"><h3>AuraMc</h3><p>Jr Mod Supporter, Logs Verified (Giu 2026 - Lug 2026)</p></a>
         </div>
     </div>
+</div>
 
-    <script>
-        function show(id) {
-            document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-            document.getElementById(id).style.display = 'block';
-        }
-    </script>
 </body>
 </html>
