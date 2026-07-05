@@ -4,7 +4,7 @@ Sono **Panda**, un ragazzo di 15 anni appassionato di sicurezza nei server Minec
 
 ### Il mio sito ufficiale
 Per una visualizzazione completa del mio portfolio, della mia esperienza nello staff e del mio stile, visita:
-👉 **[https://pandagamer07.github.io](https://pandagamer07.github.io)**
+👉 **[https://pandagamer07.github.io/Staff-Exp/)**
 
 ### 🛠️ Competenze
 * **SS & Forensics:** Studio approfondito delle tecniche di ScreenSharing.
