@@ -15,7 +15,7 @@
         :root {
             --bg: #07070b;
             --bg-secondary: #0d0d14;
-            --card: rgba(17, 17, 26, 0.72);
+            --card: rgba(17, 17, 26, 0.76);
 
             --primary: #7c5cff;
             --primary-light: #a58fff;
@@ -28,7 +28,6 @@
 
             --green: #46d98c;
             --red: #ff6464;
-            --yellow: #ffd166;
             --blue: #65a7ff;
         }
 
@@ -41,28 +40,51 @@
 
         body {
             font-family: "Inter", sans-serif;
-            background:
-                radial-gradient(circle at 15% 10%, rgba(124,92,255,.15), transparent 30%),
-                radial-gradient(circle at 85% 20%, rgba(76,141,255,.10), transparent 30%),
-                var(--bg);
-
             color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(124,92,255,.15),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(76,141,255,.10),
+                    transparent 30%
+                ),
+                var(--bg);
         }
 
         body::before {
             content: "";
+
             position: fixed;
             inset: 0;
 
+            pointer-events: none;
+
             background-image:
-                linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+                linear-gradient(
+                    rgba(255,255,255,.018) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.018) 1px,
+                    transparent 1px
+                );
 
             background-size: 45px 45px;
 
-            pointer-events: none;
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 80%
+            );
+
             z-index: -1;
         }
 
@@ -75,6 +97,7 @@
             width: min(1100px, calc(100% - 40px));
             margin: auto;
         }
+
 
         /* =========================
            NAVBAR
@@ -98,6 +121,7 @@
             border-radius: 16px;
 
             background: rgba(8,8,14,.72);
+
             backdrop-filter: blur(18px);
         }
 
@@ -118,6 +142,7 @@
 
         .nav-links a {
             color: var(--muted);
+
             font-size: .85rem;
             font-weight: 500;
 
@@ -127,6 +152,7 @@
         .nav-links a:hover {
             color: white;
         }
+
 
         /* =========================
            HERO
@@ -183,6 +209,7 @@
             border-radius: 999px;
 
             background: rgba(124,92,255,.08);
+
             border: 1px solid rgba(124,92,255,.25);
 
             color: var(--primary-light);
@@ -191,6 +218,7 @@
             font-weight: 700;
 
             letter-spacing: .08em;
+
             text-transform: uppercase;
         }
 
@@ -216,7 +244,7 @@
         }
 
         .hero-description {
-            max-width: 650px;
+            max-width: 680px;
 
             margin: 18px auto 0;
 
@@ -256,6 +284,7 @@
             color: white;
         }
 
+
         /* =========================
            SECTIONS
         ========================= */
@@ -287,14 +316,16 @@
 
             margin-top: 12px;
 
-            background: linear-gradient(
-                90deg,
-                var(--primary),
-                var(--secondary)
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--secondary)
+                );
 
             border-radius: 10px;
         }
+
 
         /* =========================
            CARDS
@@ -303,13 +334,15 @@
         .grid {
             display: grid;
 
-            grid-template-columns: repeat(2, minmax(0,1fr));
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
 
             gap: 18px;
         }
 
         .grid.three {
-            grid-template-columns: repeat(3, minmax(0,1fr));
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
         }
 
         .card {
@@ -359,7 +392,8 @@
         .card:hover {
             transform: translateY(-5px);
 
-            border-color: rgba(124,92,255,.35);
+            border-color:
+                rgba(124,92,255,.35);
 
             box-shadow:
                 0 20px 60px rgba(0,0,0,.3);
@@ -367,7 +401,6 @@
 
         .card h3 {
             font-size: 1.1rem;
-
             margin-bottom: 7px;
         }
 
@@ -386,6 +419,7 @@
 
             line-height: 1.7;
         }
+
 
         /* =========================
            TAGS
@@ -416,40 +450,63 @@
 
             color: #bdafff;
 
-            background: rgba(124,92,255,.08);
+            background:
+                rgba(124,92,255,.08);
 
-            border: 1px solid rgba(124,92,255,.25);
+            border:
+                1px solid rgba(124,92,255,.25);
         }
 
         .tag.admin {
             color: #ff9d9d;
-            background: rgba(255,80,80,.06);
-            border-color: rgba(255,80,80,.25);
+
+            background:
+                rgba(255,80,80,.06);
+
+            border-color:
+                rgba(255,80,80,.25);
         }
 
         .tag.manager {
             color: #c3a9ff;
-            background: rgba(155,100,255,.07);
-            border-color: rgba(155,100,255,.25);
+
+            background:
+                rgba(155,100,255,.07);
+
+            border-color:
+                rgba(155,100,255,.25);
         }
 
         .tag.logs {
             color: #dfb0ff;
-            background: rgba(180,80,255,.07);
-            border-color: rgba(180,80,255,.25);
+
+            background:
+                rgba(180,80,255,.07);
+
+            border-color:
+                rgba(180,80,255,.25);
         }
 
         .tag.green {
             color: #8de5b4;
-            background: rgba(60,210,120,.06);
-            border-color: rgba(60,210,120,.25);
+
+            background:
+                rgba(60,210,120,.06);
+
+            border-color:
+                rgba(60,210,120,.25);
         }
 
         .tag.blue {
             color: #8abfff;
-            background: rgba(70,140,255,.06);
-            border-color: rgba(70,140,255,.25);
+
+            background:
+                rgba(70,140,255,.06);
+
+            border-color:
+                rgba(70,140,255,.25);
         }
+
 
         /* =========================
            ABOUT
@@ -458,7 +515,8 @@
         .about-grid {
             display: grid;
 
-            grid-template-columns: 1.2fr .8fr;
+            grid-template-columns:
+                1.2fr .8fr;
 
             gap: 18px;
         }
@@ -484,7 +542,8 @@
         .stats {
             display: grid;
 
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns:
+                repeat(2,1fr);
 
             gap: 12px;
         }
@@ -498,7 +557,7 @@
         .stat strong {
             display: block;
 
-            font-size: 1.65rem;
+            font-size: 1.45rem;
 
             margin-bottom: 5px;
         }
@@ -508,6 +567,7 @@
 
             font-size: .72rem;
         }
+
 
         /* =========================
            PROJECTS
@@ -527,6 +587,7 @@
             margin-bottom: 18px;
         }
 
+
         /* =========================
            FOOTER
         ========================= */
@@ -544,6 +605,7 @@
         footer span {
             color: var(--primary);
         }
+
 
         /* =========================
            RESPONSIVE
@@ -573,7 +635,11 @@
         @media(max-width: 500px) {
 
             .container {
-                width: min(100% - 25px, 1100px);
+                width:
+                    min(
+                        100% - 25px,
+                        1100px
+                    );
             }
 
             nav {
@@ -593,30 +659,49 @@
                 padding: 20px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
+
     <!-- =========================
-         NAVBAR
+         NAVIGATION
     ========================== -->
 
     <nav>
+
         <div class="logo">
             PANDA<span>.</span>
         </div>
 
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#current">Current</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#current">
+                Current
+            </a>
+
+            <a href="#experience">
+                Experience
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
         </div>
+
     </nav>
 
 
     <main class="container">
+
 
         <!-- =========================
              HERO
@@ -625,6 +710,7 @@
         <header class="hero">
 
             <div class="profile-wrapper">
+
                 <img
                     src="pfp.jpeg"
                     class="pfp"
@@ -632,19 +718,28 @@
                 >
 
                 <div class="status"></div>
+
             </div>
+
 
             <div class="eyebrow">
                 Minecraft Staff • Management • Projects
             </div>
 
-            <h1>Panda</h1>
+
+            <h1>
+                Panda
+            </h1>
+
 
             <p class="hero-description">
+
                 Minecraft staff member focused on server administration,
-                staff management, moderation, logs verification, media
-                management and project development.
+                staff management, moderation, logs verification,
+                media management and project development.
+
             </p>
+
 
             <div class="info-bar">
 
@@ -668,6 +763,7 @@
         </header>
 
 
+
         <!-- =========================
              ABOUT ME
         ========================== -->
@@ -676,10 +772,12 @@
 
             <div class="section-header">
 
-                <h2>About Me</h2>
+                <h2>
+                    About Me
+                </h2>
 
                 <p>
-                    A quick overview of my experience and what I can do.
+                    A quick overview of my experience and responsibilities.
                 </p>
 
                 <div class="section-line"></div>
@@ -689,58 +787,80 @@
 
             <div class="about-grid">
 
+
                 <div class="card">
 
                     <p class="about-text">
 
-                        I'm Panda, a Minecraft staff member with experience
-                        in server administration, staff team coordination,
-                        moderation, media management, logs verification and
-                        project management.
+                        I'm Panda, a Minecraft staff member with more than
+                        two years of staff experience and more than one year
+                        of management experience.
 
                         <br><br>
 
-                        During my experiences I've reached several different
-                        positions, including management and administrative
-                        roles. I mainly focus on organizing staff teams,
-                        improving internal systems, handling operational
-                        situations and keeping communities properly managed.
+                        My main strengths are server administration,
+                        staff team coordination, management, internal
+                        organization, media management, logs verification
+                        and project management.
 
                         <br><br>
 
-                        I also work on independent projects inside the
-                        <strong>Learn</strong> ecosystem, where I focus on
-                        management, Discord infrastructure, staff organization
-                        and project development.
+                        Throughout my experience I have reached several
+                        management and administrative positions, with
+                        <strong>SR. Admin</strong> being the highest rank
+                        I have reached so far.
+
+                        <br><br>
+
+                        Outside of server staffing, I also work on my own
+                        projects within the <strong>Learn</strong> ecosystem,
+                        focusing on staff education, Discord management,
+                        project management and community development.
 
                     </p>
 
 
                     <div class="role-cloud">
 
-                        <span class="tag admin">ADMIN</span>
+                        <span class="tag admin">
+                            SR. ADMIN
+                        </span>
 
-                        <span class="tag admin">ADMIN SUPP</span>
+                        <span class="tag manager">
+                            STAFF MANAGER
+                        </span>
 
-                        <span class="tag manager">STAFF MANAGER</span>
+                        <span class="tag manager">
+                            MEDIA MANAGER
+                        </span>
 
-                        <span class="tag manager">MEDIA MANAGER</span>
-
-                        <span class="tag manager">ROLLBACK MANAGER</span>
+                        <span class="tag manager">
+                            ROLLBACK MANAGER
+                        </span>
 
                         <span class="tag manager">
                             STAFF MANAGER ASSISTANT
                         </span>
 
-                        <span class="tag logs">
-                            LOGS VERIFIED
+                        <span class="tag manager">
+                            DISCORD MANAGER
                         </span>
 
-                        <span class="tag blue">SR MOD</span>
+                        <span class="tag manager">
+                            STORE MANAGER
+                        </span>
 
-                        <span class="tag blue">MOD SUPP</span>
+                        <span class="tag manager">
+                            PROJECT MANAGER
+                        </span>
 
-                        <span class="tag green">HELPER SUPP</span>
+                        <span class="tag admin">
+                            CEO
+                        </span>
+
+                        <span class="tag admin">
+                            OWNER
+                        </span>
 
                     </div>
 
@@ -749,31 +869,65 @@
 
                 <div class="stats">
 
-                    <div class="card stat">
-                        <strong>Admin</strong>
-                        <span>Highest rank reached</span>
-                    </div>
 
                     <div class="card stat">
-                        <strong>10+</strong>
-                        <span>Different roles</span>
+
+                        <strong>
+                            SR. Admin
+                        </strong>
+
+                        <span>
+                            Highest rank reached
+                        </span>
+
                     </div>
 
-                    <div class="card stat">
-                        <strong>3</strong>
-                        <span>Learn projects</span>
-                    </div>
 
                     <div class="card stat">
-                        <strong>2025+</strong>
-                        <span>Staff experience</span>
+
+                        <strong>
+                            2+ Years
+                        </strong>
+
+                        <span>
+                            Staff experience
+                        </span>
+
                     </div>
+
+
+                    <div class="card stat">
+
+                        <strong>
+                            1+ Year
+                        </strong>
+
+                        <span>
+                            Management experience
+                        </span>
+
+                    </div>
+
+
+                    <div class="card stat">
+
+                        <strong>
+                            3
+                        </strong>
+
+                        <span>
+                            Learn projects
+                        </span>
+
+                    </div>
+
 
                 </div>
 
             </div>
 
         </section>
+
 
 
         <!-- =========================
@@ -784,10 +938,12 @@
 
             <div class="section-header">
 
-                <h2>Current & Recent</h2>
+                <h2>
+                    Currently
+                </h2>
 
                 <p>
-                    My current position and most recent major experience.
+                    My current staff position.
                 </p>
 
                 <div class="section-line"></div>
@@ -807,17 +963,21 @@
                     class="card"
                 >
 
-                    <h3>TypeMC</h3>
+                    <h3>
+                        TypeMC
+                    </h3>
 
                     <div class="date">
                         Current
                     </div>
 
+
                     <p class="description">
 
-                        Currently part of the TypeMC staff team, working
-                        across administration, media, rollback management,
-                        staff coordination and logs verification.
+                        Currently part of the TypeMC staff team,
+                        working across administration, media,
+                        rollback management, staff coordination
+                        and logs verification.
 
                     </p>
 
@@ -848,52 +1008,10 @@
 
                 </a>
 
-
-                <!-- LUNARY -->
-
-                <a
-                    href="https://imgur.com/a/hj5A5s4"
-                    target="_blank"
-                    rel="noopener"
-                    class="card"
-                >
-
-                    <h3>LunaryMC</h3>
-
-                    <div class="date">
-                        Jun 2026 - Jul 30, 2026
-                    </div>
-
-                    <p class="description">
-
-                        Reached the position of Admin while handling
-                        multiple management responsibilities before
-                        leaving the staff team on July 30, 2026.
-
-                    </p>
-
-
-                    <div class="tags">
-
-                        <span class="tag admin">
-                            ADMIN
-                        </span>
-
-                        <span class="tag manager">
-                            MULTIPLE MANAGEMENTS
-                        </span>
-
-                        <span class="tag">
-                            LEFT JUL 30
-                        </span>
-
-                    </div>
-
-                </a>
-
             </div>
 
         </section>
+
 
 
         <!-- =========================
@@ -904,7 +1022,9 @@
 
             <div class="section-header">
 
-                <h2>Staff Experience</h2>
+                <h2>
+                    Staff Experience
+                </h2>
 
                 <p>
                     Previous Minecraft staff experiences.
@@ -927,11 +1047,14 @@
                     class="card"
                 >
 
-                    <h3>StepMc</h3>
+                    <h3>
+                        StepMc
+                    </h3>
 
                     <div class="date">
                         Jan 2025 - Jun 2025
                     </div>
+
 
                     <div class="tags">
 
@@ -948,7 +1071,8 @@
                 </a>
 
 
-                <!-- ZETSY -->
+
+                <!-- ZETSYNW -->
 
                 <a
                     href="https://imgur.com/a/JhKghQ5"
@@ -957,11 +1081,14 @@
                     class="card"
                 >
 
-                    <h3>ZetsyNetwork</h3>
+                    <h3>
+                        ZetsyNetwork
+                    </h3>
 
                     <div class="date">
                         Jul 2025 - Aug 2025
                     </div>
+
 
                     <div class="tags">
 
@@ -974,7 +1101,8 @@
                 </a>
 
 
-                <!-- FRUIT -->
+
+                <!-- FRUIT MC -->
 
                 <a
                     href="https://imgur.com/a/ZQLfDEQ"
@@ -983,11 +1111,14 @@
                     class="card"
                 >
 
-                    <h3>FruitMc</h3>
+                    <h3>
+                        FruitMc
+                    </h3>
 
                     <div class="date">
                         Sep 2025 - Jun 2026
                     </div>
+
 
                     <div class="tags">
 
@@ -1012,7 +1143,8 @@
                 </a>
 
 
-                <!-- HERO -->
+
+                <!-- HERO MC -->
 
                 <a
                     href="https://imgur.com/a/YwIrsFt"
@@ -1021,11 +1153,14 @@
                     class="card"
                 >
 
-                    <h3>HeroMc</h3>
+                    <h3>
+                        HeroMc
+                    </h3>
 
                     <div class="date">
                         Jun 2026
                     </div>
+
 
                     <div class="tags">
 
@@ -1046,7 +1181,50 @@
                 </a>
 
 
-                <!-- IMPERIAL -->
+
+                <!-- LUNARY MC -->
+
+                <a
+                    href="https://imgur.com/a/hj5A5s4"
+                    target="_blank"
+                    rel="noopener"
+                    class="card"
+                >
+
+                    <h3>
+                        LunaryMC
+                    </h3>
+
+                    <div class="date">
+                        Jun 2026 - Jul 2026
+                    </div>
+
+
+                    <p class="description">
+
+                        Reached the position of SR. Admin while
+                        handling multiple management responsibilities.
+
+                    </p>
+
+
+                    <div class="tags">
+
+                        <span class="tag admin">
+                            SR. ADMIN
+                        </span>
+
+                        <span class="tag manager">
+                            MULTIPLE MANAGEMENTS
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- IMPERIAL MC -->
 
                 <a
                     href="https://imgur.com/a/EMof1Wy"
@@ -1055,11 +1233,14 @@
                     class="card"
                 >
 
-                    <h3>ImperialMc</h3>
+                    <h3>
+                        ImperialMc
+                    </h3>
 
                     <div class="date">
                         Jun 2026 - Jul 2026
                     </div>
+
 
                     <div class="tags">
 
@@ -1076,6 +1257,7 @@
         </section>
 
 
+
         <!-- =========================
              LEARN PROJECTS
         ========================== -->
@@ -1084,11 +1266,13 @@
 
             <div class="section-header">
 
-                <h2>Learn Projects</h2>
+                <h2>
+                    Learn Projects
+                </h2>
 
                 <p>
-                    Projects focused on education, staff development and
-                    Minecraft community management.
+                    Projects focused on education, staff development
+                    and Minecraft community management.
                 </p>
 
                 <div class="section-line"></div>
@@ -1112,16 +1296,21 @@
                         PROJECT 01
                     </div>
 
-                    <h3>Network Learn</h3>
+
+                    <h3>
+                        Network Learn
+                    </h3>
 
                     <div class="date">
                         Learn Ecosystem
                     </div>
 
+
                     <p class="description">
 
-                        Network project created to connect and organize
-                        the different projects inside the Learn ecosystem.
+                        Network project created to connect,
+                        organize and manage the different projects
+                        inside the Learn ecosystem.
 
                     </p>
 
@@ -1145,6 +1334,7 @@
                 </a>
 
 
+
                 <!-- STAFF LEARN -->
 
                 <a
@@ -1158,16 +1348,21 @@
                         PROJECT 02
                     </div>
 
-                    <h3>Staff Learn</h3>
+
+                    <h3>
+                        Staff Learn
+                    </h3>
 
                     <div class="date">
                         Learn Ecosystem
                     </div>
 
+
                     <p class="description">
 
                         Educational project focused on teaching,
-                        developing and preparing Minecraft staff members.
+                        developing and preparing Minecraft staff
+                        members.
 
                     </p>
 
@@ -1191,7 +1386,8 @@
                 </a>
 
 
-                <!-- SS LEARN -->
+
+                <!-- SS LEARN IT -->
 
                 <a
                     href="https://imgur.com/a/8aAe3Ph"
@@ -1204,16 +1400,21 @@
                         PROJECT 03
                     </div>
 
-                    <h3>SS Learn IT</h3>
+
+                    <h3>
+                        SS Learn IT
+                    </h3>
 
                     <div class="date">
                         Learn Ecosystem
                     </div>
 
+
                     <p class="description">
 
-                        Italian educational project focused on ScreenShare,
-                        staff training and community operations.
+                        Italian educational project focused on
+                        ScreenShare, staff training and community
+                        operations.
 
                     </p>
 
@@ -1247,9 +1448,14 @@
     </main>
 
 
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
 
-        Panda <span>•</span>
+        Panda
+        <span>•</span>
         Minecraft Staff & Project Portfolio
 
     </footer>
